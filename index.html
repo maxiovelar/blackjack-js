@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    
+    <header class="titulo">BLACKJACK</header>
+
+    <div id="divBotones">
+        <div class="divBotones2">
+            <button id="btnNuevo">New Game</button>
+            <button id="btnPedir" disabled="disabled">Hit</button>
+            <button id="btnDetener" disabled="disabled">Stand</button>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div>
+            <h1 id="player">Player 1 - <small>0</small></h1>
+            <div id="jugador-cartas" class="divCartas">
+                <!-- <img class="carta" src="assets/cartas/10S.png"> -->
+            </div>
+        </div>
+    </div>
+
+    <div class="card-container">
+        <div>
+            <h1 id="cpu">Cpu - <small>0</small></h1>
+            <div id="cpu-cartas" class="divCartas">
+                <!-- <img class="carta" src="assets/cartas/4S.png"> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/underscore-min.js"></script>
+    <script src="assets/js/juego-min.js"></script>
+
+    <script>
+
+        console.log(miModulo);
+        btnNuevo = document.querySelector('#btnNuevo');
+        btnNuevo.addEventListener('click', () => {
+            miModulo.nuevoJuego();
+        });
+    
+    </script>
+
+</body>
+</html>

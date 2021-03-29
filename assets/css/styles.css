@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+html, body {
+    box-sizing: border-box;
+    margin: 0px;
+    /* background-color: #2f4f30; */
+    background-image: url('/assets/img/Tortoise-Shell.svg');
+    color: #fff;
+    overflow-x: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+
+.titulo {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 20px;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.divBotones2 {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    position: relative;
+    width: 250px;
+    margin: 10px auto 0 auto;
+}
+
+.carta {
+    position: relative;
+    width: 145px;
+    left: 100px;
+    margin-left: -75px;
+}
+
+#jugador-cartas, #cpu-cartas {
+    height: 230px;
+}
+
+button {
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    font-family:'Trebuchet MS', 'Arial, sans-serif';
+    border-radius: 5px;
+    padding: 12px;
+}
+
+button:active {
+    box-shadow: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:disabled {
+    cursor:not-allowed;
+    opacity: 0.6;
+}
+
+#btnNuevo {
+    background-color: #0044ff;
+}
+
+#btnPedir {
+    background-color: #14ac00;
+}
+
+#btnDetener {
+    background-color: #c20000;
+}
+
+#player {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+#cpu {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+.divCartas {
+    margin-left: 30px;
+}
