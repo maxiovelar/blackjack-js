@@ -11,7 +11,7 @@ html, body {
     font-size: 18px;
 }
 
-.titulo {
+.title {
     text-align: center;
     background-color: #000;
     color: #fff;
@@ -21,7 +21,7 @@ html, body {
     letter-spacing: 2px;
 }
 
-.divBotones2 {
+.divButtons2 {
     display: flex;
     align-content: center;
     justify-content: space-around;
@@ -30,15 +30,16 @@ html, body {
     margin: 10px auto 0 auto;
 }
 
-.carta {
+.card {
     position: relative;
     width: 145px;
     left: 100px;
     margin-left: -75px;
 }
 
-#jugador-cartas, #cpu-cartas {
+.divCards {
     height: 230px;
+    margin-left: 30px;
 }
 
 button {
@@ -65,15 +66,15 @@ button:disabled {
     opacity: 0.6;
 }
 
-#btnNuevo {
+#btnNew {
     background-color: #0044ff;
 }
 
-#btnPedir {
+#btnHit {
     background-color: #14ac00;
 }
 
-#btnDetener {
+#btnStand {
     background-color: #c20000;
 }
 
@@ -86,9 +87,5 @@ button:disabled {
 #cpu {
     margin-top: 30px;
     margin-bottom: 15px;
-    margin-left: 30px;
-}
-
-.divCartas {
     margin-left: 30px;
 }

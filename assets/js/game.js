@@ -5,7 +5,7 @@
 
 // Sintaxis:
 
-const miModulo = (() => {
+const myModule = (() => {
     'use strict'
 
     let deck = [];
@@ -17,11 +17,11 @@ const miModulo = (() => {
 
 
     // Referencias del HTML
-    const btnPedir = document.querySelector('#btnPedir'),
-        btnDetener = document.querySelector('#btnDetener'),
-        btnNuevo = document.querySelector('#btnNuevo');
+    const btnHit = document.querySelector('#btnHit'),
+          btnStand = document.querySelector('#btnStand'),
+          btnNew = document.querySelector('#btnNew');
 
-    const divCartasJugadores = document.querySelectorAll('.divCartas'),
+    const divPlayersCards = document.querySelectorAll('.divCards'),
         marcadores = document.querySelectorAll('small');
 
 
@@ -37,9 +37,9 @@ const miModulo = (() => {
         }
 
         marcadores.forEach(elem => elem.innerText = 0);
-        divCartasJugadores.forEach(elem => elem.innerHTML = '');
-        btnPedir.disabled = false;
-        btnDetener.disabled = false;
+        divPlayersCards.forEach(elem => elem.innerHTML = '');
+        btnHit.disabled = false;
+        btnStand.disabled = false;
 
     }
 
@@ -101,9 +101,9 @@ const miModulo = (() => {
     const crearCarta = (carta, turno) => {
 
         const imgCarta = document.createElement('img');
-        imgCarta.src = `assets/cartas/${carta}.png`;
-        imgCarta.classList.add('carta');
-        divCartasJugadores[turno].append(imgCarta);
+        imgCarta.src = `assets/cards/${carta}.png`;
+        imgCarta.classList.add('card');
+        divPlayersCards[turno].append(imgCarta);
 
     }
 
@@ -156,7 +156,7 @@ const miModulo = (() => {
 
     // EVENTOS:
     // Botón Pedir
-    btnPedir.addEventListener('click', () => {
+    btnHit.addEventListener('click', () => {
 
         const carta = pedirCarta();
         const puntosJugador = acumularPuntos(carta, 0);
@@ -164,14 +164,14 @@ const miModulo = (() => {
         crearCarta(carta, 0);
 
         if (puntosJugador > 21) {
-            btnPedir.disabled = true;
-            btnDetener.disabled = true;
+            btnHit.disabled = true;
+            btnStand.disabled = true;
             turnoComputadora(puntosJugador);
 
         } else if (puntosJugador === 21) {
             marcadores[0].innerText = `${puntosJugador} GENIAL!`;
-            btnPedir.disabled = true;
-            btnDetener.disabled = true;
+            btnHit.disabled = true;
+            btnStand.disabled = true;
             turnoComputadora(puntosJugador);
         }
 
@@ -179,10 +179,10 @@ const miModulo = (() => {
 
 
     // Botón Detener
-    btnDetener.addEventListener('click', () => {
+    btnStand.addEventListener('click', () => {
 
-        btnDetener.disabled = true;
-        btnPedir.disabled = true;
+        btnStand.disabled = true;
+        btnHit.disabled = true;
         turnoComputadora(puntosJugadores[0]);
 
     });

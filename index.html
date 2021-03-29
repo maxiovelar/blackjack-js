@@ -11,21 +11,21 @@
 
 <body>
     
-    <header class="titulo">BLACKJACK</header>
+    <header class="title">BLACKJACK</header>
 
-    <div id="divBotones">
-        <div class="divBotones2">
-            <button id="btnNuevo">New Game</button>
-            <button id="btnPedir" disabled="disabled">Hit</button>
-            <button id="btnDetener" disabled="disabled">Stand</button>
+    <div id="divButtons">
+        <div class="divButtons2">
+            <button id="btnNew">New Game</button>
+            <button id="btnHit" disabled="disabled">Hit</button>
+            <button id="btnStand" disabled="disabled">Stand</button>
         </div>
     </div>
 
     <div class="card-container">
         <div>
-            <h1 id="player">Player 1 - <small>0</small></h1>
-            <div id="jugador-cartas" class="divCartas">
-                <!-- <img class="carta" src="assets/cartas/10S.png"> -->
+            <h1 id="player">You - <small>0</small></h1>
+            <div id="player-cards" class="divCards">
+                <!-- <img class="card" src="assets/cards/10S.png"> -->
             </div>
         </div>
     </div>
@@ -33,21 +33,21 @@
     <div class="card-container">
         <div>
             <h1 id="cpu">Cpu - <small>0</small></h1>
-            <div id="cpu-cartas" class="divCartas">
-                <!-- <img class="carta" src="assets/cartas/4S.png"> -->
+            <div id="cpu-cards" class="divCards">
+                <!-- <img class="card" src="assets/cards/4S.png"> -->
             </div>
         </div>
     </div>
 
     <script src="assets/js/underscore-min.js"></script>
-    <script src="assets/js/juego-min.js"></script>
+    <script src="assets/js/game.js"></script>
 
     <script>
 
-        console.log(miModulo);
-        btnNuevo = document.querySelector('#btnNuevo');
-        btnNuevo.addEventListener('click', () => {
-            miModulo.nuevoJuego();
+        console.log(myModule);
+        btnNew = document.querySelector('#btnNew');
+        btnNew.addEventListener('click', () => {
+            myModule.nuevoJuego();
         });
     
     </script>
