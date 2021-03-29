@@ -1,9 +1,8 @@
 
-// Patrón Módulo:
-// es una función anónima auto invocada en la que vamos a colocar
-// nuestro código para protegerlo 
+// Module Pattern:
+// It is a self-invoked anonymous function in which we are going to place our code to protect it
 
-// Sintaxis:
+// Syntax:
 
 const myModule = (() => {
     'use strict'
@@ -26,7 +25,7 @@ const myModule = (() => {
 
 
 
-    // This function initialize the game
+    // This function initializes the game
     const initGame = (playersNum = 2) => {
 
         deck = createDeck();
@@ -44,19 +43,19 @@ const myModule = (() => {
     }
 
 
-    // This function create a new deck
+    // This function creates a new deck
     const createDeck = () => {
 
         deck = [];
         for (let i = 2; i <= 10; i++) {
-            for (let tipo of types) {
-                deck.push(i + tipo);
+            for (let type of types) {
+                deck.push(i + type);
             }
         }
 
-        for (let tipo of types) {
-            for (let especial of specials) {
-                deck.push(especial + tipo);
+        for (let type of types) {
+            for (let special of specials) {
+                deck.push(special + type);
             }
         }
         return _.shuffle(deck);
@@ -64,11 +63,11 @@ const myModule = (() => {
     }
 
 
-    // Esta función me permite tomar una carta
-    const pedirCarta = () => {
+    // This function allows to take a card
+    const takeCard = () => {
 
         if (deck.length === 0) {
-            throw 'No hay cartas en el deck';
+            throw 'There are no cards in the deck';
 
         }
         return deck.pop();
@@ -76,121 +75,121 @@ const myModule = (() => {
     }
 
 
-    // Esta función le asigna valor a cada carta
-    const valorCarta = (carta) => {
+    // This function assigns value to each card
+    const cardValue = (card) => {
 
-        const valor = carta.substring(0, carta.length - 1);
-        return (isNaN(valor)) ?
-            (valor === 'A') ? 11 : 10
-            : valor * 1;
-
-    }
-
-
-    // Turno: 0 = primer jugador y el último será la Cpu
-    const acumularPuntos = (carta, turno) => {
-
-        playersPoints[turno] = playersPoints[turno] + valorCarta(carta);
-        scores[turno].innerText = playersPoints[turno];
-        return playersPoints[turno];
+        const value = card.substring(0, card.length - 1);
+        return (isNaN(value)) ?
+            (value === 'A') ? 11 : 10
+            : value * 1;
 
     }
 
 
-    // Esta función crea las cartas
-    const crearCarta = (carta, turno) => {
+    // Turn: 0 = first player (you), and the last one will be cpu
+    const addPoints = (card, turn) => {
 
-        const imgCarta = document.createElement('img');
-        imgCarta.src = `assets/cards/${carta}.png`;
-        imgCarta.classList.add('card');
-        divPlayersCards[turno].append(imgCarta);
+        playersPoints[turn] = playersPoints[turn] + cardValue(card);
+        scores[turn].innerText = playersPoints[turn];
+        return playersPoints[turn];
 
     }
 
 
-    // Esta función valida el que jugador gana
-    const determinarGanador = () => {
+    // This function creates the cards
+    const createCard = (card, turn) => {
 
-        const [puntosMinimos, puntosComputadora] = playersPoints;
-        const marcadorCpu = scores[playersPoints.length - 1];
+        const imgcard = document.createElement('img');
+        imgcard.src = `assets/cards/${card}.png`;
+        imgcard.classList.add('card');
+        divPlayersCards[turn].append(imgcard);
 
-        if ((puntosComputadora === puntosMinimos) && (puntosMinimos === 21)) {
-            marcadorCpu.innerText = `${puntosComputadora} EMPATE!`;
+    }
 
-        } else if (puntosMinimos > 21) {
-            scores[0].innerText = `${playersPoints[0]} Perdiste`;
-            marcadorCpu.innerText = `${puntosComputadora} Gana`;
 
-        } else if ((puntosComputadora > puntosMinimos) && (puntosComputadora <= 21)) {
-            scores[0].innerText = `${playersPoints[0]} Perdiste`;
-            marcadorCpu.innerText = `${puntosComputadora} Gana`;
+    // This function validates what player wins
+    const validateWinner = () => {
 
-        } else if (puntosComputadora > 21) {
-            marcadorCpu.innerText = `${puntosComputadora} Pierde`;
-            scores[0].innerText = `${playersPoints[0]} GANASTE!!`;
+        const [minimumPoints, cpuPoints] = playersPoints;
+        const cpuScore = scores[playersPoints.length - 1];
+
+        if ((cpuPoints === minimumPoints) && (minimumPoints === 21)) {
+            cpuScore.innerText = `${cpuPoints} TIE!`;
+
+        } else if (minimumPoints > 21) {
+            scores[0].innerText = `${playersPoints[0]} GAME OVER`;
+            cpuScore.innerText = `${cpuPoints} Wins`;
+
+        } else if ((cpuPoints > minimumPoints) && (cpuPoints <= 21)) {
+            scores[0].innerText = `${playersPoints[0]} GAME OVER`;
+            cpuScore.innerText = `${cpuPoints} Wins`;
+
+        } else if (cpuPoints > 21) {
+            cpuScore.innerText = `${cpuPoints} Loses`;
+            scores[0].innerText = `${playersPoints[0]} YOU WIN!!`;
         }
 
     }
 
 
-    // Turno de la computadora
-    const turnoComputadora = (puntosMinimos) => {
+    // Cpu turn
+    const cpuTurn = (minimumPoints) => {
 
-        let puntosComputadora = 0;
+        let cpuPoints = 0;
 
         do {
 
-            const carta = pedirCarta();
-            puntosComputadora = acumularPuntos(carta, playersPoints.length - 1);
-            crearCarta(carta, playersPoints.length - 1);
+            const card = takeCard();
+            cpuPoints = addPoints(card, playersPoints.length - 1);
+            createCard(card, playersPoints.length - 1);
 
-        } while ((puntosComputadora <= puntosMinimos) &&
-        (puntosComputadora <= 20) &&
-            (puntosMinimos <= 21)
+        } while ((cpuPoints <= minimumPoints) &&
+                 (cpuPoints <= 20) &&
+                 (minimumPoints <= 21)
         );
 
-        determinarGanador();
+        validateWinner();
 
     }
 
 
-    // EVENTOS:
-    // Botón Pedir
+    // EVENTS:
+    // Hit button
     btnHit.addEventListener('click', () => {
 
-        const carta = pedirCarta();
-        const puntosJugador = acumularPuntos(carta, 0);
+        const card = takeCard();
+        const playerPoints = addPoints(card, 0);
 
-        crearCarta(carta, 0);
+        createCard(card, 0);
 
-        if (puntosJugador > 21) {
+        if (playerPoints > 21) {
             btnHit.disabled = true;
             btnStand.disabled = true;
-            turnoComputadora(puntosJugador);
+            cpuTurn(playerPoints);
 
-        } else if (puntosJugador === 21) {
-            scores[0].innerText = `${puntosJugador} GENIAL!`;
+        } else if (playerPoints === 21) {
+            scores[0].innerText = `${playerPoints} GREAT!`;
             btnHit.disabled = true;
             btnStand.disabled = true;
-            turnoComputadora(puntosJugador);
+            cpuTurn(playerPoints);
         }
 
     });
 
 
-    // Botón Detener
+    // Stand button
     btnStand.addEventListener('click', () => {
 
         btnStand.disabled = true;
         btnHit.disabled = true;
-        turnoComputadora(playersPoints[0]);
+        cpuTurn(playersPoints[0]);
 
     });
 
 
 
     return {
-        nuevoJuego: initGame
+        newGame: initGame
     };
 
 })();
