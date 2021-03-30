@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blackjack</title>
+    <link rel="stylesheet" href="assets/css/styles.css">
+</head>
+
+<body>
+    
+    <header class="title">BLACKJACK</header>
+
+    <!-- BUTTONS -->
+    <div id="divButtons">
+        <div class="divButtons2">
+            <button id="btnNew">New Game</button>
+            <button id="btnHit" disabled="disabled">Hit</button>
+            <button id="btnStand" disabled="disabled">Stand</button>
+        </div>
+    </div>
+
+    <!-- PLAYER CARDS -->
+    <div class="card-container">
+        <div>
+            <h1 id="player">You - <small>0</small></h1>
+            <div id="player-cards" class="divCards">
+                <!-- <img class="card" src="assets/cards/10S.png"> -->
+            </div>
+        </div>
+    </div>
+
+    <!-- CPU CARDS -->
+    <div class="card-container">
+        <div>
+            <h1 id="cpu">Cpu - <small>0</small></h1>
+            <div id="cpu-cards" class="divCards">
+                <!-- <img class="card" src="assets/cards/4S.png"> -->
+            </div>
+        </div>
+    </div>
+
+    <script src="assets/js/underscore-min.js"></script>
+    <script src="assets/js/game-min.js"></script>
+
+    <!-- TO INITIALIZE GAME -->
+    <script>
+
+        console.log(myModule);
+        btnNew = document.querySelector('#btnNew');
+        btnNew.addEventListener('click', () => {
+            myModule.newGame();
+        });
+    
+    </script>
+
+</body>
+</html>

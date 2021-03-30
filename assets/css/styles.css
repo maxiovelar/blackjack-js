@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0px;
+    /* background-color: #2f4f30;  if you want green background only instead of Tortoise-Shell.svg*/ 
+    background-image: url('/docs/assets/img/Tortoise-Shell.svg');
+    color: #fff;
+    overflow-x: hidden;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 18px;
+}
+
+.title {
+    text-align: center;
+    background-color: #000;
+    color: #fff;
+    padding: 22px 20px 20px 20px;
+    font-size: 30px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+
+.divButtons2 {
+    display: flex;
+    align-content: center;
+    justify-content: space-around;
+    position: relative;
+    width: 300px;
+    margin: 10px auto 0 auto;
+}
+
+.card {
+    position: relative;
+    width: 145px;
+    left: 100px;
+    margin-left: -75px;
+}
+
+.divCards {
+    height: 230px;
+    margin-left: 30px;
+}
+
+button {
+    cursor: pointer;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3);
+    font-size: 16px;
+    color: #fff;
+    border: none;
+    font-family:'Trebuchet MS', 'Arial, sans-serif';
+    border-radius: 5px;
+    padding: 12px;
+}
+
+button:active {
+    box-shadow: none;
+}
+
+button:focus {
+    outline: none;
+}
+
+button:disabled {
+    cursor:not-allowed;
+    opacity: 0.6;
+}
+
+#btnNew {
+    background-color: #0044ff;
+}
+
+#btnHit {
+    background-color: #14ac00;
+}
+
+#btnStand {
+    background-color: #c20000;
+}
+
+#player {
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+#cpu {
+    margin-top: 30px;
+    margin-bottom: 15px;
+    margin-left: 30px;
+}
+
+
+/* MOBILE */
+@media (min-width: 320px) and (max-width: 480px) {
+    .title {
+        text-align: center;
+        background-color: #000;
+        color: #fff;
+        padding: 18px 16px 16px 16px;
+        font-size: 28px;
+    }
+
+    .divButtons2 {
+        margin-top: 25px;
+        margin-bottom: 25px;
+        width: 95%;
+    }
+
+    button {
+        font-size: 18px;
+        padding: 16px;
+    }
+
+    .card {
+        width: 110px;
+    }
+
+    #player, #cpu{
+        font-size: 26px;
+        margin-top: 0;
+    }
+
+    .divCards {
+        height: 200px;
+        margin-left: 5px;
+    }
+}
+
+/* TABLETS LOW RES */
+@media (min-width: 481px) and (max-width: 767px) {
+    .card {
+        width: 120px;
+    }
+}
+
+/* TABLETS HIGH RES */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .card-container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 80%;
+    }
+}
+
+/* LAPTOPS - DESKTOPS */
+@media (min-width: 1024px) and (max-width: 1365px){
+    .card-container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 65%;
+    }
+
+    .divButtons2 {
+        margin-top: 25px;
+        margin-bottom: 35px;
+        width: 400px;
+    }
+
+    button {
+        font-size: 20px;
+        padding: 18px;
+    }
+}
+
+/* DESKTOPS HIGH RES */
+@media (min-width: 1366px) {
+    .card-container {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 50%;
+    }
+}
