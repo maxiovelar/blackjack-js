@@ -1,6 +1,7 @@
 # Blackjack - JS
 
 This is a game based on the popular Blackjack.
+
 The game consists of 3 simple steps:
 
 -Click on NEW GAME to start playing.
