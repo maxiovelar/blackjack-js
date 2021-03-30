@@ -166,7 +166,7 @@ button:disabled {
     }
 }
 
-/* DESKTOPS HIG RES */
+/* DESKTOPS HIGH RES */
 @media (min-width: 1366px) {
     .card-container {
         margin-left: auto;
