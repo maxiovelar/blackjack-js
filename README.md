@@ -15,6 +15,7 @@ Enjoy it!!
 
 ### Notes:
 Developed with HTML, CSS and JavaScript.
+
 To shuffle the cards we used Underscore.js library.
 
 The JavaScript logic applied on this project is part of the learning on the course "JavaScript Moderno" by Fernando Herrera.
